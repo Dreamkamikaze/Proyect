@@ -18,6 +18,7 @@ require('dotenv').config();
 app.use('/styles', express.static(path.resolve(__dirname, 'views', 'styles')));
 app.use('/', express.static(path.resolve(__dirname, 'views', 'home')));
 app.use('/signup', express.static(path.resolve(__dirname, 'views', 'signup')));
+app.use('/componentes', express.static(path.resolve(__dirname, 'views', 'componentes')));
 
 //Rutas Backend
 

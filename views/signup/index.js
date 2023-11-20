@@ -1,4 +1,4 @@
-
+import { createNotification } from "../componentes/notification.js";
 
 /* eslint-disable no-undef */
 const form = document.querySelector('#form');
@@ -7,6 +7,7 @@ const emailInput = document.querySelector('#emailInput');
 const passInput = document.querySelector('#passInput');
 const passConfirmInput = document.querySelector('#passConfirmInput');
 const formbtn = document.querySelector('#btn');
+const notification = document.querySelector('#notification')
 console.log(axios);
 
 const NAME_REGEX = /^([A-ZÁ-Ú\u00d1])([a-zá-ú\u00f1])+(?:\s([A-ZÁ-Ú\u00d1])([a-zá-ú\u00f1])+)$/;
@@ -67,6 +68,9 @@ form.addEventListener('submit', async e => {
     const response = await axios.post('/api/users', newUser);
     console.log(response);
   } catch (error) {
-    console.log(error);
+    createNotification(true, error.response.data.error )
+    setTimeout(() => {
+      notification.innerHTML = '';
+    }, 4000);
   }
 });

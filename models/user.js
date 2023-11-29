@@ -8,6 +8,10 @@ const userSchema = new mongoose.Schema({
     type: Boolean,
     default: false
   },
+  rol: {
+    type: String,
+    default: 'usuario',
+  }
 });
 
 userSchema.set('toJSON', {

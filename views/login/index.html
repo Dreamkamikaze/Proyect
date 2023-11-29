@@ -4,22 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/styles/main.css">
-    <title>Document</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <title>Login</title>
 </head>
 <body>
     <nav id="nav" class="fixed top-0 right-0 left-0 bg-rose-900 h-16 gap-4">
     </nav>
     
-    <div class="h-screen max-w-7xl mx-auto pt-16 flex items-center justify-center py-4 px-4">
-        <div class="flex justify-center items-center w-96">
-            <form class= "flex flex-col p-4 gap-3 rounded-lg bg-rose-900 w-full">
+    <div class="h-screen max-w-7xl mx-auto pt-16 flex items-center justify-center p-4">
+        <div class="flex justify-center items-center md:w-2/4 w-full">
+            <form id="form" class= "flex flex-col p-4 gap-3 rounded-lg bg-rose-900 w-full">
     <!-- Login -->
     
     <div class="flex flex-col gap-2">
     <label for="name-input" class="font-semibold text-white ">
     Correo
     </label>
-    <input 
+    <input
+    id="emailInput" 
     type="email"
     autocomplete="off"
     placeholder="Su correo electronico" required
@@ -28,21 +30,26 @@
     </div>
     <div class="flex flex-col gap-2">
         <label for="name-input" class="font-semibold text-white ">
-        Contrasena
+        Contraseña
         </label>
         <input 
+        id="passInput"
         type="password"
         autocomplete="off"
-        placeholder="Su contrasena" required
+        placeholder="Su contraseña" required
         class="rounded-lg p-2 bg-slate-950 focus:outline-slate-950 text-white">
         
         </div>
     
             <div class="flex flex-row gap-2">
                 
-           <a href="" class="text-white font-extralight underline cursor-pointer">Olvidaste tu contrasena?</a>
+           <a href="" class="text-white font-extralight underline cursor-pointer">Olvidaste tu contraseña?</a>
         </div>
+        <p id="text-error" class="text-sm font-bold"></p>
             <div class="flex items-center justify-center py-4">
+
+
+
             <button class=" bg-slate-900 px-3 py-3 text-rose-100 rounded-lg hover:bg-slate-950 w-full">Ingresar</button>
             </div>
     
@@ -50,5 +57,6 @@
      </div>
      </div>
      <script src="/componentes/nav.js"></script>
+     <script src="index.js"></script>
 </body>
 </html>

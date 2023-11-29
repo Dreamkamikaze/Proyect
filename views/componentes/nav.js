@@ -21,12 +21,12 @@ const navHome = () => {
 
 <!-- Computador -->
 <div class="hidden md:flex row text-white font-extralight gap-3">
-<a href="/login/" class=" py-2 px-2 hover:bg-rose-950 rounded-lg transition ease-in-out">Iniciar sesion</a>
+<a href="/login/" class=" py-2 px-2 hover:bg-rose-950 rounded-lg transition ease-in-out">Iniciar sesión</a>
 <a href="/signup/" class=" bg-rose-700 py-2 px-2 hover:bg-rose-950 rounded-lg transition ease-in-out">Registrarse</a>
 </div> 
 
 <div class="bg-rose-950/80 fixed top-16 left-0 right-0 bottom-96 hidden items-center justify-center flex-col gap-3">
-<a href="/login/" class="py-2 px-2 hover:bg-rose-950 rounded-lg transition ease-in-out">Iniciar sesion</a>
+<a href="/login/" class="py-2 px-2 hover:bg-rose-950 rounded-lg transition ease-in-out">Iniciar sesión</a>
 <a href="/signup/" class=" bg-rose-700 py-2 px-2 text-white hover:bg-rose-950 transition ease-in-out rounded-lg">Registrarse</a>
 </div>
 </div>
@@ -54,13 +54,13 @@ const navSignup = () => {
 
 <!-- Computador -->
 <div class="hidden md:flex row text-white font-extralight gap-3">
-<a href="/login/" class=" py-2 px-2 hover:bg-rose-950 rounded-lg transition ease-in-out">Iniciar sesion</a>
-<a href="/" class="  py-2 px-2 hover:bg-rose-950 rounded-lg transition ease-in-out">Menu principal</a>
+<a href="/login/" class=" py-2 px-2 hover:bg-rose-950 rounded-lg transition ease-in-out">Iniciar sesión</a>
+<a href="/" class="  py-2 px-2 hover:bg-rose-950 rounded-lg transition ease-in-out">Menú principal</a>
 </div> 
 
 <div class="bg-rose-950/80 fixed top-16 left-0 right-0 bottom-96 hidden items-center justify-center flex-col gap-3">
-<a href="/login/" class="py-2 px-2 text-white hover:bg-rose-950 rounded-lg transition ease-in-out">Iniciar sesion</a>
-<a href="/" class="  py-2 px-2 text-white hover:bg-rose-950 transition ease-in-out rounded-lg">Menu principal</a>
+<a href="/login/" class="py-2 px-2 text-white hover:bg-rose-950 rounded-lg transition ease-in-out">Iniciar sesión</a>
+<a href="/" class="  py-2 px-2 text-white hover:bg-rose-950 transition ease-in-out rounded-lg">Menú principal</a>
 </div>
 </div>
     `;
@@ -86,12 +86,12 @@ const navLogin = () => {
 
 <!-- Computador -->
 <div class="hidden md:flex row text-white font-extralight gap-3">
-<a href="/" class="  py-2 px-2 text-white hover:bg-rose-950 transition ease-in-out rounded-lg">Menu principal</a>
+<a href="/" class="  py-2 px-2 text-white hover:bg-rose-950 transition ease-in-out rounded-lg">Menú principal</a>
 <a href="/signup/" class=" bg-rose-700 py-2 px-2 hover:bg-rose-950 rounded-lg transition ease-in-out">Registrarse</a>
 </div> 
 
 <div class="bg-rose-950/80 fixed top-16 left-0 right-0 bottom-96 hidden items-center justify-center flex-col gap-3">
-<a href="/" class="  py-2 px-2 text-white hover:bg-rose-950 transition ease-in-out rounded-lg">Menu principal</a>
+<a href="/" class="  py-2 px-2 text-white hover:bg-rose-950 transition ease-in-out rounded-lg">Menú principal</a>
 <a href="/signup/" class=" bg-rose-950 py-2 px-2 text-white hover:bg-rose-950 transition ease-in-out rounded-lg">Registarse</a>
 </div>
 </div>

@@ -9,6 +9,7 @@ const morgan = require('morgan');
 const loginRouter = require('./controlers/login');
 const { userExtractor } = require('./middleware/auth');
 const adminRouter = require('./controlers/isAdmin');
+const servicesRouter = require('./controlers/services');
 require('dotenv').config();
 
 (async() => {
@@ -41,6 +42,7 @@ app.use(morgan('tiny'));
 //Rutas Backend
 app.use('/api/users',  usersRouter);
 app.use('/api/login',  loginRouter);
+app.use('/api/services', servicesRouter);
 app.use('/api/isAdmin', userExtractor, adminRouter);
 
 

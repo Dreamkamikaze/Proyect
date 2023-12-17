@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Services</title>
     <link rel="stylesheet" href="/styles/main.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 <body>
     <div class="h-screen max-w-full mx-auto pt-20 flex justify-between items-center flex-row px-10 ">
@@ -18,51 +19,84 @@
                     <p class="text-4xl">Servicios</p>
                 </div>
         </div>
-        <div class="w-full h-16">
-            <div class="bg-slate-400 h-full w-11/12 rounded-lg flex items-center gap-4">
-                <button class="bg-black text-white p-2 rounded-xl ">Destacados</button>
-                <button class="hover:bg-slate-100">Peluquería</button>
-                <button>Faciales</button>
-                <button>Uñas</button>
+        <div class="w-4/6 h-16 fixed top-40">
+            <div id="menu" class="bg-slate-700 h-full w-full rounded-lg flex items-center gap-4">
+                    <a id="destacados" href="#first">Peluquería</a>
+
+                    <a  id="peluqueria" href="#second">Cuerpo</a>
+
+
+                    <a id="faciales" href="#third">Cara</a>
+
+                    <a id="nails" href="#four">Uñas</a>
+
             </div>
         </div>
-        <div class="w-full h-14 pb-2">
+        <div id="first" class="w-full h-14 pt-2">
             <div class="bg-slate-500 h-full w-11/12 rounded-lg flex items-center">
-                <p class="text-2xl">Destacados</p>
+                <p class="text-2xl">Peluquería</p>
             </div>
     </div> 
-    <div class="w-full h-1/4 pb-2">
-        <div class="bg-slate-400 h-full w-11/12 rounded-lg flex flex-row items-center justify-between p-4 break-words">
-            <div class="flex flex-col items-start w-3/4">
-            <p class="font-bold pb-0 pr-2 w-full">Retiro de semi</p>
-            <p class="text-gray-800">15 min</p>
-            <p class="pt-2">Precio</p>
-            </div>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-9 h-9 cursor-pointer rounded-full hover:bg-slate-500">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-        </div>
-    </div>
-    <div class="w-full h-14 pb-2">
+    <div class="w-full h-1/4">
+    <ul id="texDes">
+        </ul>
+    <div id="second" class="w-full h-14 pt-2">
         <div class="bg-slate-500 h-full w-11/12 rounded-lg flex items-center">
-            <p class="text-2xl">Peluquería</p>
+            <p class="text-2xl">Cuerpo</p>
         </div>
-    </div>  
-    <div class="w-full h-14 pb-2">
+    </div> 
+    <div class="w-full h-1/4">
+        <ul id="texPel" >
+            </ul> 
+    <div id="third" class="w-full h-14 pt-2">
         <div class="bg-slate-500 h-full w-11/12 rounded-lg flex items-center">
-            <p class="text-2xl">Faciales</p>
+            <p class="text-2xl">Cara</p>
         </div>
-        </div> 
-    <div class="w-full h-14 pb-2">
+        </div>
+        <div class="w-full h-1/4">
+            <ul id="texFac" >
+                </ul> 
+    <div id="four" class="w-full h-14 pt-2">
     <div class="bg-slate-500 h-full w-11/12 rounded-lg flex items-center">
         <p class="text-2xl">Uñas</p>
     </div>
     </div> 
-    
+    <div class="w-full h-1/4">
+        <ul id="texUn" >
+            </ul>
         </div>
-        <div class=" fixed right-10 top-24 w-1/4 h-5/6 pb-3">
-            <div class="bg-slate-400 h-full w-full rounded-lg"></div>
+        <div class=" fixed right-10 top-24 w-1/4 h-5/6 pb-3 hidden md:flex">
+            <div class="bg-slate-400 h-full w-full rounded-lg p-4 pt-7">
+                <form class=" h-full flex items-center justify-center flex-col gap-2" id="r">
+                    <p class="text-xl text-white font-bold pb-2">Crear nuevo servicio</p>
+                <div class="pb-4 w-full rounded-lg">
+                <select id="choose" class="w-full p-3 rounded-lg">
+                    <option disabled selected value="0">Escoge el servicio</option>
+                    <option value="1">Peluquería</option>
+                        <option value="2">Cuerpo</option>
+                        <option value="3">Cara</option>
+                        <option value="4">Uñas</option>
+                    </select>
+                </div>
+                <div class="flex justify-start w-full">
+                <p class="font-bold text-xs">Nombre del servicio</p>
+                </div>
+                <input id="servicio" class="w-full h-10 rounded-lg" type="text" autocomplete="off">
+                <div class="flex justify-start w-full">
+                <p class="font-bold text-xs pt-2">Duración del servicio</p>
+                </div>
+                <input id="descripcion" class="w-full h-10 rounded-lg" type="text" autocomplete="off">
+                <div class="flex justify-between items-center w-full">
+                <p class="font-bold text-xs pt-2">Precio del servicio (En dolares)</p>
+                </div>
+                <input id="precio" class="w-full h-10 rounded-lg " type="number" autocomplete="off">
+                <div class="pt-7 w-full">
+                <button id="continuar" class="p-2 w-full font-bold text-white bg-black rounded-lg disabled:opacity-25" disabled>Crear servicio</button>
+                </div>
+                </form>
+            </div>
         </div> 
         </div>
+        <script src="index.js"></script>
 </body>
 </html>

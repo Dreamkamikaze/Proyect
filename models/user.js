@@ -3,7 +3,6 @@ const mongoose = require('mongoose');
 const userSchema = new mongoose.Schema({
   name: String,
   email: String,
-  tlf: String,
   passwordHash: String,
   verified: {
     type: Boolean,
@@ -12,7 +11,11 @@ const userSchema = new mongoose.Schema({
   rol: {
     type: String,
     default: 'usuario',
-  }
+  },
+  service: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Service'
+  }]
 });
 
 userSchema.set('toJSON', {

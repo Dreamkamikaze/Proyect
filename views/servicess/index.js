@@ -155,7 +155,7 @@ r.addEventListener('submit', async e => {
   <div class="bg-slate-400 h-full w-11/12 rounded-lg flex flex-row items-center justify-between p-4 break-words">
   <div class="flex flex-col items-start w-3/4">
         <p class="font-bold pb-0 pr-2 w-full">${data.service.charAt(0).toUpperCase() + servicio.value.substring(1)}</p>
-    <p class="text-gray-800">${data.description.charAt(0).toUpperCase() + servicio.value.substring(1)}</p>
+    <p class="text-gray-800">${data.description.charAt(0).toUpperCase() + descripcion.value.substring(1)}</p>
     <p class="pt-2">USD: ${data.price}$</p>
     </div>
      <div class="flex justify-stretch gap-2">
@@ -188,7 +188,8 @@ r.addEventListener('submit', async e => {
 
 });
 
-const vaya = (ul) => {
+const vaya = (ul)  => {
+
   ul.addEventListener('click', async e => {
     const dltbtn = e.target.closest('.dlt');
     const newEmployed =  e.target.closest('.new');
@@ -197,7 +198,9 @@ const vaya = (ul) => {
       await axios.delete(`/api/services/${dlt.id}`);
       dlt.remove();
     } else if (newEmployed){
-      window.location.pathname = '/employed';
+      const nw = newEmployed.parentElement.parentElement.parentElement;
+      console.log(nw.id);
+      window.location.pathname = `/employed/${nw.id}`;
     }
   });
 };

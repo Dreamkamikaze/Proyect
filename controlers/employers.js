@@ -1,5 +1,6 @@
 const employersRouter = require('express').Router();
 const user = require('../models/user');
+const Service = require('../models/service');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const nodemailer = require('nodemailer');
@@ -53,6 +54,22 @@ employersRouter.post('/', async (request, response) => {
   });
 
   return response.status(201).json( 'Usuario creado. Por favor verifica el correo' );
+});
+
+employersRouter.get('/', async (request, response) => {
+  const service = await user.find({ rol: 'trabajador' });
+  return response.status(200).json(service);
+});
+
+employersRouter.put('/:id', async (request, response) => {
+  let { employed } = request.body;
+
+  const a = await Service.findByIdAndUpdate(request.params.id, { employed });
+  console.log(a.employed);
+
+
+  return response.sendStatus(200);
+
 });
 
 

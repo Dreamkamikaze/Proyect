@@ -10,6 +10,8 @@ const loginRouter = require('./controlers/login');
 const { userExtractor } = require('./middleware/auth');
 const adminRouter = require('./controlers/isAdmin');
 const servicesRouter = require('./controlers/services');
+const employersRouter = require('./controlers/employers');
+const getEmployersRouter = require('./controlers/getEmployers');
 require('dotenv').config();
 
 (async() => {
@@ -33,14 +35,17 @@ app.use('/signup', express.static(path.resolve(__dirname, 'views', 'signup')));
 app.use('/login', express.static(path.resolve(__dirname, 'views', 'login')));
 app.use('/componentes', express.static(path.resolve(__dirname, 'views', 'componentes')));
 app.use('/servicess', express.static(path.resolve(__dirname, 'views', 'servicess')));
-app.use('/employed', express.static(path.resolve(__dirname, 'views', 'employed')));
+app.use('/employed/:id', express.static(path.resolve(__dirname, 'views', 'employed')));
 app.use('/schedule', express.static(path.resolve(__dirname, 'views', 'schedule')));
+app.use('/signem', express.static(path.resolve(__dirname, 'views', 'signem')));
 app.use('/verify/:id/:token', express.static(path.resolve(__dirname, 'views', 'verify')));
 
 app.use(morgan('tiny'));
 
 //Rutas Backend
 app.use('/api/users',  usersRouter);
+app.use('/api/employers', employersRouter);
+app.use('/api/getEmployers', getEmployersRouter);
 app.use('/api/login',  loginRouter);
 app.use('/api/services', servicesRouter);
 app.use('/api/isAdmin', userExtractor, adminRouter);

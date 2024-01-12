@@ -63,13 +63,35 @@ employersRouter.get('/', async (request, response) => {
 
 employersRouter.put('/:id', async (request, response) => {
   let { employed } = request.body;
+  console.log(employed);
 
-  const a = await Service.findByIdAndUpdate(request.params.id, { employed });
-  console.log(a.employed);
+
+
+  const a = await Service.findById(request.params.id);
+
+
+  const exist = a.employed.find(user => user.toString() === employed);
+
+  if (exist) {
+    return response.status(400).json({ error: 'El trabajador ya esta agregado' });
+  }
+
+  a.employed = a.employed.concat(employed);
+  await a.save();
 
 
   return response.sendStatus(200);
 
+});
+
+employersRouter.patch('/:id', async (request, response) => {
+  const { employed } = request.body;
+
+  const a = await Service.findById(request.params.id);
+  a.employed = a.employed.filter(worker => worker._id.toString() !== employed);
+  await a.save();
+
+  return response.sendStatus(200);
 });
 
 

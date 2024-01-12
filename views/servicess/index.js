@@ -1,4 +1,5 @@
 /* eslint-disable no-undef */
+console.log('hola');
 // Constantes
 const menu = document.querySelector('#menu');
 const peluqueria = menu.children[0];
@@ -6,6 +7,7 @@ const cuerpo = menu.children[1];
 const cara = menu.children[2];
 const nails = menu.children[3];
 const buttons = [cuerpo, peluqueria, cara, nails];
+console.log(peluqueria, cara);
 
 const choose = document.querySelector('#choose');
 const r = document.querySelector('#r');

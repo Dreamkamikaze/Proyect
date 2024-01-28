@@ -2,11 +2,15 @@
 // Constantes
 const ul = document.querySelector('#selectionList');
 const menu = document.querySelector('#menu');
+// const makeDate = document.querySelector('#makeDate');
 const peluqueria = menu.children[0];
 const cuerpo = menu.children[1];
 const cara = menu.children[2];
 const nails = menu.children[3];
 const buttons = [cuerpo, peluqueria, cara, nails];
+
+const makeDate = document.querySelector('#makeDate');
+
 
 //Funcion que crea los  li
 const maker = (nameId, dat) => {
@@ -57,8 +61,6 @@ const maker = (nameId, dat) => {
     nail.forEach(element => {
       maker('serNail', element);
     });
-
-
 
 
   } catch (error) {
@@ -121,3 +123,19 @@ menu.addEventListener('click', e => {
 
   }
 });
+
+makeDate.addEventListener('click', async () => {
+//Aqui crea el servicio
+  try {
+    const newDate = {
+      price: ''
+    };
+    const a = await axios.post('/api/dates', newDate);
+    window.location.pathname = `/userServices/${a.data.id}`;
+  } catch (error) {
+    console.log(error);
+  }
+
+});
+
+

@@ -12,6 +12,7 @@ const adminRouter = require('./controlers/isAdmin');
 const servicesRouter = require('./controlers/services');
 const employersRouter = require('./controlers/employers');
 const getEmployersRouter = require('./controlers/getEmployers');
+const datesRouter = require('./controlers/dates');
 require('dotenv').config();
 
 (async() => {
@@ -38,6 +39,7 @@ app.use('/servicess', express.static(path.resolve(__dirname, 'views', 'servicess
 app.use('/employed/:id', express.static(path.resolve(__dirname, 'views', 'employed')));
 app.use('/schedule', express.static(path.resolve(__dirname, 'views', 'schedule')));
 app.use('/signem', express.static(path.resolve(__dirname, 'views', 'signem')));
+app.use('/userServices/:id', express.static(path.resolve(__dirname, 'views', 'userServices')));
 app.use('/verify/:id/:token', express.static(path.resolve(__dirname, 'views', 'verify')));
 
 app.use(morgan('tiny'));
@@ -48,6 +50,7 @@ app.use('/api/employers', employersRouter);
 app.use('/api/getEmployers', getEmployersRouter);
 app.use('/api/login',  loginRouter);
 app.use('/api/services', servicesRouter);
+app.use('/api/dates', datesRouter);
 app.use('/api/isAdmin', userExtractor, adminRouter);
 
 

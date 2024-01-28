@@ -11,11 +11,7 @@ const userSchema = new mongoose.Schema({
   rol: {
     type: String,
     default: 'usuario',
-  },
-  service: [{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Service'
-  }]
+  }
 });
 
 userSchema.set('toJSON', {

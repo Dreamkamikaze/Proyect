@@ -1,5 +1,4 @@
 /* eslint-disable no-undef */
-console.log('hola');
 // Constantes
 const menu = document.querySelector('#menu');
 const peluqueria = menu.children[0];
@@ -7,7 +6,6 @@ const cuerpo = menu.children[1];
 const cara = menu.children[2];
 const nails = menu.children[3];
 const buttons = [cuerpo, peluqueria, cara, nails];
-console.log(peluqueria, cara);
 
 const choose = document.querySelector('#choose');
 const r = document.querySelector('#r');
@@ -54,10 +52,14 @@ precio.addEventListener('input', e => {
   vali();
 });
 
+
+
+
 // Datos traidos del backend y mostrados en el frontend
 
 (async () => {
   try {
+
     const { data } = await axios.get('/api/services');
     data.forEach(service => {
 
@@ -91,12 +93,12 @@ precio.addEventListener('input', e => {
         <p class="text-gray-800">${service.description.charAt(0).toUpperCase() + service.description.substring(1)}</p>
         <p class="pt-2">USD: ${service.price}$</p>
         </div>
-         <div class="flex justify-stretch gap-2">
-         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="new w-9 h-9 cursor-pointer rounded-full hover:bg-blue-500" >
-         <path stroke-linecap="round" stroke-linejoin="round" d="M19 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zM4 19.235v-.11a6.375 6.375 0 0112.75 0v.109A12.318 12.318 0 0110.374 21c-2.331 0-4.512-.645-6.374-1.766z" />
-         </svg>
-         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="dlt w-9 h-9 cursor-pointer rounded-full hover:bg-rose-700">
-         <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        <div class="flex justify-stretch gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="new w-9 h-9 cursor-pointer rounded-full hover:bg-blue-500" >
+        <path stroke-linecap="round" stroke-linejoin="round" d="M19 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zM4 19.235v-.11a6.375 6.375 0 0112.75 0v.109A12.318 12.318 0 0110.374 21c-2.331 0-4.512-.645-6.374-1.766z" />
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="dlt w-9 h-9 cursor-pointer rounded-full hover:bg-rose-700">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
         </div>
         </div>
@@ -110,6 +112,28 @@ precio.addEventListener('input', e => {
   }
 
 })();
+
+const vaya = (ul)  => {
+
+  ul.addEventListener('click', async e => {
+    const dltbtn = e.target.closest('.dlt');
+    const newEmployed =  e.target.closest('.new');
+    if (dltbtn) {
+      const dlt = dltbtn.parentElement.parentElement.parentElement;
+      await axios.delete(`/api/services/${dlt.id}`);
+      dlt.remove();
+    } else if (newEmployed){
+      const nw = newEmployed.parentElement.parentElement.parentElement;
+      window.location.pathname = `/employed/${nw.id}`;
+    }
+  });
+};
+
+vaya(document.querySelector('#texDes'));
+vaya(document.querySelector('#texPel'));
+vaya(document.querySelector('#texFac'));
+vaya(document.querySelector('#texUn'));
+
 
 
 
@@ -147,7 +171,6 @@ r.addEventListener('submit', async e => {
       option: valorOption
     };
     const { data } =  await axios.post('/api/services', newService );
-    console.log(data);
 
 
     //Creando el servicio como tal
@@ -190,27 +213,6 @@ r.addEventListener('submit', async e => {
 
 });
 
-const vaya = (ul)  => {
-
-  ul.addEventListener('click', async e => {
-    const dltbtn = e.target.closest('.dlt');
-    const newEmployed =  e.target.closest('.new');
-    if (dltbtn) {
-      const dlt = dltbtn.parentElement.parentElement.parentElement;
-      await axios.delete(`/api/services/${dlt.id}`);
-      dlt.remove();
-    } else if (newEmployed){
-      const nw = newEmployed.parentElement.parentElement.parentElement;
-      console.log(nw.id);
-      window.location.pathname = `/employed/${nw.id}`;
-    }
-  });
-};
-
-vaya(document.querySelector('#texDes'));
-vaya(document.querySelector('#texPel'));
-vaya(document.querySelector('#texFac'));
-vaya(document.querySelector('#texUn'));
 
 
 

@@ -9,7 +9,7 @@ const form = document.querySelector('#form');
 const btn = document.querySelector('#btn');
 const prueba = document.querySelector('#prueba');
 const profile = document.querySelector('#profile');
-// const notification = document.querySelector('#notification')
+const notification = document.querySelector('#notification')
 
 let activeOp = false;
 let activeLen = false;
@@ -139,7 +139,7 @@ const borrar = (ul) => {
       const { data } = await axios.get('/api/employers');
       const dltEmp = data.find(({ name }) => name === ds )
       dlt.remove();
-     
+      
       await axios.patch(`/api/employers/${key}`, { employed: dltEmp._id });
     }
     activeLen = b.length < 8;

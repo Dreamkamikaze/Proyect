@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>confirm</title>
+    <link rel="stylesheet" href="/styles/main.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+  <nav id="nav" class="fixed top-0 right-0 left-0 bg-rose-900 h-16 gap-4">
+  </nav>
+
+    <div class="h-full w-full bg-slate-200"></div>
+    <div class="h-screen max-w-full mx-auto pt-36 pb-12 flex items-start flex-col px-10 gap-5 bg-slate-200">
+        <p class="text-4xl font-semibold">Citas programadas</p>
+        <table id="tabla" class=" w-full pt-10 rounded-lg">
+            <tr class="text-xl h-20 bg-white">
+              <th class=" border-e-2 w-60  text-start">Usuario</th>
+              <th class=" border-x-2 w-72  text-start">Email</th>
+              <th class=" border-x-2 w-80  text-start">Servicios</th>
+              <th class=" border-x-2 w-32  text-start">Fecha</th>
+              <th class=" border-x-2 w-32  text-start">Metodo de pago</th>
+              <th class=" border-s-2 w-32  text-start">Total a pagar</th>
+            </tr>
+            
+          </table>
+    </div>
+        <script src="index.js"></script>
+</body>
+</html>

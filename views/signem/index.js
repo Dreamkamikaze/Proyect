@@ -54,7 +54,8 @@ form.addEventListener('submit', async e => {
       name: nameInput.value,
       email: emailInput.value,
       password: randomstring, 
-      rol: 'trabajador'
+      rol: 'trabajador',
+      verified: true
     };
     const { data } = await axios.post('/api/employers', newUser);
     createNotification(false, data );

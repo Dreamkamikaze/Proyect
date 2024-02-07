@@ -204,28 +204,12 @@ form.addEventListener('submit', async e => {
   dltSer.forEach(element => {
     array.push(element.getAttribute('id'));
   });
+  console.log(array);
 
-  const total = results.textContent;
-
-
-  // try {
-  //   const newDate = {
-  //     price: total,
-  //     services: array
-  //   };
-  //   exist = true;
-
-  //   if (exist) {
-  //     console.log(exist);
-  //   }
-
-  // } catch (error) {
-  //   console.log(error);
-  // }
+  window.location.pathname = `/userEmployed/${array}`;
 
 });
 
-///HACER UN IF ELSE PARA VER SI HAGO UN PATCH O UN PUT , HACER UN POST AL PRINCIPIO Y DESPUES SOLO PATCH O PUT
 
 menu.addEventListener('click', e => {
   if (!e.target.classList.contains('bg-black', 'text-white',  'p-2', 'rounded-lg', 'w-28', 'flex', 'justify-center')) {

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>confirm</title>
+    <link rel="stylesheet" href="/styles/main.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <nav id="nav" class="fixed top-0 right-0 left-0 bg-rose-900 h-16 gap-4">
+    </nav>
+
+    <div id="notification" class="fixed top-20 right-0 left-0"></div>
+    
+    <div class="h-screen max-w-full mx-auto pt-20 flex items-center flex-row px-10 gap-5 ">
+        <div class="flex flex-col h-full w-3/4 gap-1">
+            <div class="w-full h-20">
+                <div class="bg-slate-500 h-full w-11/12 rounded-lg">
+                    <div class="flex flex-row pb-2">
+                        <p> Servicio >Equipo >Hora</p>
+                        <p class="font-bold">> Confirmar</p>
+                    </div>
+                    <p class="text-4xl">Verifique los datos de su cita</p>
+                </div>
+                </div>
+    <div class="h-5/6 w-full bg-slate-600 rounded-lg px-7 py-2 flex flex-col gap-2">
+        <div class="flex flex-row gap-2">
+            <div class="text-2xl font-semibold">Usuario: </div>
+        <p id="usuario" class="text-2xl"></p>
+    </div>
+    <div class="flex flex-row gap-2">
+        <div class="text-2xl font-semibold">Email: </div>
+        <p id="email" class="text-2xl"></p>
+       </div>
+       <p class="text-2xl font-semibold">Servicios con sus empleados:</p>
+       <div class="w-full h-40 overflow-y-scroll bg-slate-500 rounded-md">
+        <ul id="serviemplo">
+            
+        </ul>
+       </div>
+       <div class="flex flex-row gap-2">
+        <div class="text-2xl font-semibold">Fecha y hora: </div>
+        <p id="dateTime" class="text-2xl"></p>
+    </div>
+    <div class="flex flex-row justify-between items-center pr-11">
+        <p class="text-2xl font-semibold">Total a pagar:</p>
+        <p id="totalPrice" class="text-2xl"></p>
+    </div>
+    <div class=" h-14 w-full pt-3">
+        <button id="restart" class="text-lg font-semibold h-full w-full rounded-lg hover:bg-slate-800 bg-slate-700 transition ease-in-out">Si hay un dato erroneo, puede volver a intentarlo presionando aqui</button>
+        </div>
+</div>
+</div>
+
+<div class="flex flex-col h-full w-2/4 justify-end pb-4">
+    
+<div class="h-5/6 w-full bg-slate-600 rounded-lg px-7 py-12 flex flex-col gap-4">
+    
+   <p class="text-2xl font-semibold text-center">Metodo de pago:</p>
+   <select id="metodoPago" class="h-16 w-full text-xl rounded-lg bg-slate-700">
+    <option selected disabled  value="0">Seleccione un metodo de pago</option>
+    <option value="Pago Movil" class="text-xl">Pago Móvil</option>
+    <option value="Efectivo" class="text-xl">Efectivo</option>
+   </select>
+  
+   <div class="flex flex-row gap-2 pt-28">
+   <input id="info" type="checkbox">
+   <p class="text-sm">Al presionar el boton de confirmar, su cita será reservada para el día solicitado. Las citas se concederán por orden de llegada y podrá pagar ya estando en la peluquería.</p>
+    </div>
+    <div class="flex justify-end items-end">
+    <button id="confirm" class="h-12 w-60 bg-slate-800 rounded-lg text-2xl font-semibold hover:bg-slate-900 transition ease-in-out text-slate-200 disabled:cursor-not-allowed disabled:bg-slate-800/70 disabled:text-slate-200/50" disabled>Confirmar cita</button>
+</div>
+   
+</div>
+</div>
+    </div>
+        <script type="module" src="index.js"></script>
+        <script type="module" src="/componentes/notification.js"></script>
+</body>
+</html>

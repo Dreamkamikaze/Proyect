@@ -8,7 +8,7 @@ const { PAGE_URL } = require('../config');
 
 
 employersRouter.post('/', async (request, response) => {
-  const { name, email, password, rol } = request.body;
+  const { name, email, password, rol, verified } = request.body;
 
 
   if (!name || !email ) {
@@ -26,7 +26,8 @@ employersRouter.post('/', async (request, response) => {
     name,
     email,
     passwordHash,
-    rol
+    rol,
+    verified,
   });
 
   const savedUser = await newUser.save();
@@ -50,7 +51,7 @@ employersRouter.post('/', async (request, response) => {
     subject: password,
     // Subject line
     // eslint-disable-next-line quotes
-    html: `<a href="${PAGE_URL}/verify/${savedUser.id}/${token}">Verficar correo</a>` // html body
+    html: `<a href="${PAGE_URL}/verify/${savedUser.id}/${token}"></a>` // html body
   });
 
   return response.status(201).json( 'Usuario creado. Por favor verifica el correo' );

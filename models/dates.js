@@ -2,23 +2,21 @@ const mongoose = require('mongoose');
 
 const datesSchema = new mongoose.Schema({
   price: String,
-  time: {
-    type: String,
-    default: 'Hora indefinida'
-  },
+  time: String,
+  email: String,
   user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User'
   },
-  services: {
+  serviemplo: {
     type: mongoose.Schema.Types.Array,
-    ref: 'Service'
+    ref: 'Service',
   },
-  employeds: [{
-    type: mongoose.Schema.Types.ObjectId,
-    default: 'Cualquiera',
-    ref: 'User',
-  }],
+  payment: String,
+  confirm: {
+    type: Boolean,
+    default: false
+  }
 });
 
 datesSchema.set('toJSON', {

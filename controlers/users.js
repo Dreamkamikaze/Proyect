@@ -90,4 +90,9 @@ usersRouter.patch('/:id/:token', async (request, response) => {
   }
 });
 
+usersRouter.get('/:id', async (request, response) => {
+  const dates = await user.findById(request.params.id);
+  return response.status(200).json(dates);
+});
+
 module.exports = usersRouter;

@@ -13,6 +13,7 @@ const servicesRouter = require('./controlers/services');
 const employersRouter = require('./controlers/employers');
 const getEmployersRouter = require('./controlers/getEmployers');
 const datesRouter = require('./controlers/dates');
+const datesViewRouter = require('./controlers/datesView');
 require('dotenv').config();
 
 (async() => {
@@ -37,9 +38,12 @@ app.use('/login', express.static(path.resolve(__dirname, 'views', 'login')));
 app.use('/componentes', express.static(path.resolve(__dirname, 'views', 'componentes')));
 app.use('/servicess', express.static(path.resolve(__dirname, 'views', 'servicess')));
 app.use('/employed/:id', express.static(path.resolve(__dirname, 'views', 'employed')));
-app.use('/schedule', express.static(path.resolve(__dirname, 'views', 'schedule')));
+app.use('/schedule/:id/', express.static(path.resolve(__dirname, 'views', 'schedule')));
 app.use('/signem', express.static(path.resolve(__dirname, 'views', 'signem')));
-app.use('/userServices/:id', express.static(path.resolve(__dirname, 'views', 'userServices')));
+app.use('/userServices/', express.static(path.resolve(__dirname, 'views', 'userServices')));
+app.use('/confirm/:id', express.static(path.resolve(__dirname, 'views', 'confirm')));
+app.use('/datesView/', express.static(path.resolve(__dirname, 'views', 'datesView')));
+app.use('/userEmployed/:id', express.static(path.resolve(__dirname, 'views', 'userEmployed')));
 app.use('/verify/:id/:token', express.static(path.resolve(__dirname, 'views', 'verify')));
 
 app.use(morgan('tiny'));
@@ -51,6 +55,7 @@ app.use('/api/getEmployers', getEmployersRouter);
 app.use('/api/login',  loginRouter);
 app.use('/api/services', servicesRouter);
 app.use('/api/dates', datesRouter);
+app.use('/api/datesView', datesViewRouter);
 app.use('/api/isAdmin', userExtractor, adminRouter);
 
 

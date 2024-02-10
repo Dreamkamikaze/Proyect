@@ -58,8 +58,13 @@ employersRouter.post('/', async (request, response) => {
 });
 
 employersRouter.get('/', async (request, response) => {
-  const service = await user.find({ rol: 'trabajador' });
-  return response.status(200).json(service);
+  try {
+    const service = await user.find({ rol: 'trabajador' });
+    return response.status(200).json(service);
+
+  } catch (error) {
+    console.log(error);
+  }
 });
 
 employersRouter.put('/:id', async (request, response) => {

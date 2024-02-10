@@ -67,10 +67,10 @@ employedList.addEventListener('click', e => {
   const a = document.querySelectorAll('#a');
   const otherA = [...a];
   const b = e.target.closest('#a');
-  if(!b.children[0].children[0].classList.contains('bg-slate-700')){
+  if(!b.children[0].children[0].classList.contains('bg-slate-900', 'text-white')){
     otherA.forEach(element => {
-      element.children[0].children[0].classList.remove('bg-slate-700');
-      b.children[0].children[0].classList.add('bg-slate-700');
+      element.children[0].children[0].classList.remove('bg-slate-900', 'text-white');
+      b.children[0].children[0].classList.add('bg-slate-900', 'text-white');
       confirmBtn.disabled = false;
     });
   }
@@ -80,12 +80,12 @@ giveEmployed.addEventListener('submit', e => {
   e.preventDefault();
   const a = document.querySelectorAll('#a');
   const otherA = [...a];
-  const selectedEmployed = otherA.filter(element => element.children[0].children[0].classList.contains('bg-slate-700'));
+  const selectedEmployed = otherA.filter(element => element.children[0].children[0].classList.contains('bg-slate-900', 'text-white'));
   const employedId = selectedEmployed[0].children[0].children[1].id;
   const serviceId = selectedEmployed[0].children[0].children[0].id;
   const li = document.createElement('li');
   li.innerHTML = `
-  <div id="${employedId}" class="b flex w-full h-14 bg-gray-300 outline outline-gray-600 outline-1 items-center p-3 font-bold justify-between hover:bg-red-700/50 cursor-pointer">${selectedEmployed[0].children[0].children[1].textContent}
+  <div id="${employedId}" class="b flex w-full h-14 outline-gray-600 border-b-2 border-l-2  rounded-md items-center p-3 font-bold justify-between hover:bg-red-700/50 cursor-pointer">${selectedEmployed[0].children[0].children[1].textContent}
   <p id="${serviceId}" class="text-xs text-slate-500">${selectedEmployed[0].children[0].id.charAt(0).toUpperCase() + selectedEmployed[0].children[0].id.substring(1)}</p>
   </div>
   `;
@@ -104,7 +104,6 @@ giveEmployed.addEventListener('submit', e => {
         element.classList.add('hidden');
       });
     }
-
   });
 
   const list = document.querySelectorAll('.b');
@@ -114,6 +113,7 @@ giveEmployed.addEventListener('submit', e => {
     continuar.disabled = false;
   }
 
+  otherA.forEach(element => element.children[0].children[0].classList.remove('bg-slate-900', 'text-white'));
   predeterminateOption.selected = true;
   confirmBtn.disabled = true;
   confirmBtn.classList.remove('flex');
@@ -122,6 +122,7 @@ giveEmployed.addEventListener('submit', e => {
 
 show.addEventListener('click', e => {
   const b = e.target.closest('.b');
+
   const c = document.querySelectorAll('option');
   [...c].forEach(element => {
     element.classList.remove('hidden');
@@ -141,9 +142,8 @@ form.addEventListener('submit', e => {
   const list = document.querySelectorAll('.b');
   const option = document.querySelectorAll('.coconut');
 
-  //HAY UN ERROR AQUI
   let results = [...option].filter(element => !element.classList.contains('hidden'));
-  //
+
 
   let noEmplo = [];
   results.forEach(element => {

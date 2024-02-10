@@ -2,8 +2,13 @@ const datesRouter = require('express').Router();
 const Dates = require('../models/dates');
 
 datesRouter.get('/:id', async (request, response) => {
-  const dates = await Dates.findById(request.params.id).populate('user');
-  return response.status(200).json(dates);
+  try {
+    const dates = await Dates.findById(request.params.id).populate('user');
+    return response.status(200).json(dates);
+
+  } catch (error) {
+    console.log(error);
+  }
 });
 
 datesRouter.post('/', async (request, response) => {

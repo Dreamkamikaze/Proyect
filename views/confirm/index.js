@@ -24,8 +24,8 @@ const dateId = cut[4]; //Id de la cita
   email.innerHTML = data.email;
   data.serviemplo.forEach(element => {
     const li = document.createElement('li');
-    li.innerHTML = `<div class="flex flex-row justify-between items-center pr-7 pl-3">
-    <p class="wao text-xl">${element.charAt(0).toUpperCase() + element.substring(1)}</p>
+    li.innerHTML = `<div class="flex flex-row justify-between items-center  pr-7 pl-3">
+    <p class="wao text-xl border-slate-700 border-b-2 w-full">${element.charAt(0).toUpperCase() + element.substring(1)}</p>
     </div>`;
     serviemplo.append(li);
   });

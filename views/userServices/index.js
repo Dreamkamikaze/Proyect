@@ -39,17 +39,17 @@ const form = document.querySelector('#r');
       li.id = service.id;
       li.classList.add('flex', 'flex-row');
       li.innerHTML = `
-        <div class="bg-slate-400 h-full w-11/12 rounded-lg flex flex-row items-center justify-between p-4 break-words">
+        <div class="border-2 border-slate-300 h-full w-11/12 rounded-lg flex flex-row items-center justify-between p-4 break-words">
         <div class="flex flex-col items-start w-3/4">
               <p class="font-bold pb-0 pr-2 w-full">${service.service.charAt(0).toUpperCase() + service.service.substring(1)}</p>
           <p class="text-gray-800">${service.description.charAt(0).toUpperCase() + service.description.substring(1)}</p>
           <p class="pt-2">USD: ${service.price}$</p>
           </div>
           <div class="flex justify-stretch gap-2">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="add w-9 h-9 cursor-pointer rounded-full hover:bg-blue-500" >
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="add w-9 h-9 cursor-pointer rounded-full hover:bg-indigo-600 transition ease-in-out" >
           <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
             </svg>
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="rmv w-9 h-9 cursor-pointer rounded-full hover:bg-blue-500 hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="rmv w-9 h-9 cursor-pointer rounded-full hover:bg-red-700 hidden bg-black stroke-white transition ease-in-out">
          <path stroke-linecap="round" stroke-linejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
         </svg>
 
@@ -88,8 +88,7 @@ const vaya = (ul)  => {
       //Agregando clases para que esteticamente se vea  seleccionado
       const add = addbtn.parentElement.parentElement;
       const remo = addbtn.parentElement.children[1];
-      add.classList.remove('bg-slate-400');
-      add.classList.add('bg-slate-700');
+      add.classList.add('border-slate-700');
       addbtn.classList.add('hidden');
       remo.classList.remove('hidden');
 
@@ -97,7 +96,7 @@ const vaya = (ul)  => {
       const a = document.createElement('li');
       a.id = selectSerId;
       a.innerHTML = `
-      <div class="h-20 w-full bg-slate-500 rounded-lg p-2 pl-4 pr-4 text-black flex flex-row justify-between items-center">
+      <div class="h-20 w-full  rounded-lg p-2 pl-4 pr-4 text-black flex flex-row justify-between items-center">
       <div class="flex flex-col">
       <p id="servi" class="text-xl font-semibold">${servi}</p>
       <p id="time" class="font-semibold">${time}</p>
@@ -137,8 +136,7 @@ const vaya = (ul)  => {
       const servi = principal.children[0].textContent;
       const rmv = rmvbtn.parentElement.parentElement;
       const adding = rmvbtn.parentElement.children[0];
-      rmv.classList.add('bg-slate-400');
-      rmv.classList.remove('bg-slate-700');
+      rmv.classList.remove('border-slate-700');
       rmvbtn.classList.add('hidden');
       adding.classList.remove('hidden');
 

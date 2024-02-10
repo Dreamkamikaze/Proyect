@@ -79,7 +79,7 @@ for (let i = 0; i < 8; i++) {
   const li = document.createElement('li');
   if (day[b] === 'Domingo') {
     li.innerHTML = `
-  <div class="flex justify-center items-center flex-col pr-2 pl-2">
+  <div class="flex justify-center items-center flex-col pr-2 ">
   <div class="bg-slate-400 rounded-full h-20 w-20 flex items-center justify-center cursor-not-allowed ">
       <p class="font-bold text-2xl text-slate-700">${a}</p>
   </div>
@@ -88,8 +88,8 @@ for (let i = 0; i < 8; i++) {
     ul.append(li);
   } else {
     li.innerHTML = `
-  <div class="flex justify-center items-center flex-col pr-2 pl-2">
-  <div id="wao" class="bg-slate-400 rounded-full h-20 w-20 flex items-center justify-center cursor-pointer hover:bg-slate-700 transition ease-in-out">
+  <div class="flex justify-center items-center flex-col pr-2">
+  <div id="wao" class="border-slate-400 border rounded-full h-20 w-20 flex items-center justify-center cursor-pointer hover:bg-slate-500 transition ease-in-out">
       <p class="font-bold text-2xl">${a}</p>
   </div>
   <p>${day[b]}</p>
@@ -115,7 +115,7 @@ const buttons = [a, b, c, d, e, f, g, h];
     const li = document.createElement('li');
     li.innerHTML = `
         <div class=" necessaryOne hidden w-full h-16 pb-1">
-        <div class="flex items-center w-full h-full bg-slate-600 rounded-lg pl-4 font-semibold text-xl cursor-pointer hover:bg-slate-700">${element}:00</div>
+        <div class="flex items-center w-full h-full border-slate-500 border-2 rounded-lg pl-4 font-semibold text-xl cursor-pointer hover:bg-slate-600 transition easy-in-out">${element}:00</div>
         </div>`;
     timeList.append(li);
   });
@@ -124,7 +124,7 @@ const buttons = [a, b, c, d, e, f, g, h];
     const li = document.createElement('li');
     li.innerHTML = `
           <div class="necessaryTwo hidden w-full h-16 pb-1">
-          <div class="flex items-center w-full h-full bg-slate-600 rounded-lg pl-4 font-semibold text-xl cursor-pointer hover:bg-slate-700">${element}:00</div>
+          <div class="flex items-center w-full h-full border-slate-500 border-2 rounded-lg pl-4 font-semibold text-xl cursor-pointer hover:bg-slate-600 transition ease-in-out">${element}:00</div>
           </div>`;
     timeList.append(li);
   });
@@ -136,9 +136,9 @@ ul.addEventListener('click', e => {
   timeList.classList.remove('hidden');
   timeList.classList.add('flex');
   const wow = e.target.closest('#wao');
-  if (!wow.classList.contains('bg-slate-800')) {
+  if (!wow.classList.contains('bg-slate-800', 'text-white')) {
     buttons.forEach(element =>  {
-      element.classList.remove( 'bg-slate-800');
+      element.classList.remove( 'bg-slate-800', 'text-white');
     });
   }
   const day = e.target.children[0].textContent;
@@ -152,10 +152,10 @@ ul.addEventListener('click', e => {
   if (e.target === ul) {
     return false;
   } else{
-    wow.classList.add( 'bg-slate-800');
+    wow.classList.add( 'bg-slate-800', 'text-white');
   }
 
-  if (a.classList.contains('bg-slate-800')) {
+  if (a.classList.contains('bg-slate-800', 'text-white')) {
 
     const d = document.getElementsByClassName('necessaryOne');
     const c = document.getElementsByClassName('necessaryTwo');
@@ -196,17 +196,16 @@ timeList.addEventListener('click', e => {
   }
   const a = timeList.children;
   const buttons = Array.prototype.slice.call(a);
-  if (!e.target.classList.contains('bg-slate-800')) {
+  if (!e.target.classList.contains('bg-slate-800', 'text-white')) {
     buttons.forEach(element =>  {
-      element.children[0].children[0].classList.remove( 'bg-slate-800');
-      element.children[0].children[0].classList.add( 'bg-slate-600');
+      element.children[0].children[0].classList.remove( 'bg-slate-800', 'text-white');
+
     });
   }
   if (e.target === timeList) {
     return false;
   } else{
-    e.target.classList.add( 'bg-slate-800');
-    e.target.classList.remove( 'bg-slate-600');
+    e.target.classList.add( 'bg-slate-800', 'text-white');
   }
 });
 

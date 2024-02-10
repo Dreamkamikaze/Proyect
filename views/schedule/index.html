@@ -24,10 +24,10 @@
     </div>
    </div>
    </div>
-    <div class="h-screen max-w-full mx-auto pt-20 flex justify-between items-center flex-row px-10 ">
-        <div class=" w-3/4 h-full flex flex-col">
-            <div class="w-full h-32">
-                <div class="bg-slate-400 h-full w-11/12 rounded-lg">
+    <div class="h-screen max-w-full mx-auto pt-20 flex justify-between items-center flex-row px-10">
+        <div class=" w-3/4 h-full flex flex-col pt-6">
+            <div class="w-full h-24">
+                <div class=" h-full w-11/12 rounded-lg">
                     <div class="flex flex-row pb-2">
                         <p>Servicios >Equipo ></p>
                         <p class="font-bold"> Hora ></p>
@@ -36,16 +36,16 @@
                     <p class="text-4xl">Seleccionar fecha y hora</p>
                 </div>
         </div>
-        <div class="w-full h-3/4 pb-2">
-            <div class="bg-slate-500 h-40 w-11/12 rounded-lg gap-2 p-2 flex flex-col">
-                <p id="month" class="font-bold text-xl pl-7"></p>
+        <div class="w-full h-3/4">
+            <div class=" h-40 w-11/12 rounded-lg gap-2 p-2 flex flex-col">
+                <p id="month" class="font-bold text-xl "></p>
                 
                 <ul id="ul" class="flex flex-row h-full w-fit">
                     
                 </ul>
             </div>
             <div class=" h-full w-full rounded-lg pt-2 flex flex-col pb-4 gap-2">
-                <div class="bg-slate-500 h-16 w-11/12 rounded-lg p-2 flex items-center">
+                <div class="h-16 w-11/12 rounded-lg p-2 flex items-center">
                     <p id="text" class="font-bold text-lg">Horarios: Escoge una fecha</p>
                 </div>
                 <ul id="timeList" class="hidden flex-col h-full w-11/12">
@@ -56,9 +56,9 @@
     
         </div>
         <div class="w-1/4 h-3/6 py-3 hidden md:flex">
-            <div class="bg-slate-400 h-full w-full rounded-lg p-4 pt-7">
+            <div class="border-slate-400 border-2 h-full w-full rounded-lg p-4 pt-7">
                 <form id="form" class=" h-full flex items-center justify-center flex-col gap-2" id="r">
-                    <p class="text-2xl text-white font-bold pb-2">Escoja un horario</p>
+                    <p class="text-2xl font-bold pb-2">Escoja un horario</p>
                    
                     <div class="h-72 w-full flex flex-col pl-3">
                         <div class="flex flex-row h-2/5 w-full gap-3">
@@ -77,7 +77,7 @@
                 </div>
     
                 <div class="pt-4 pb-4 w-full">
-                <button id="continuar" class="p-2 w-full font-bold text-white bg-black rounded-lg disabled:opacity-25" disabled>Continuar</button>
+                <button id="continuar" class="p-2 w-full font-bold text-white bg-black rounded-lg disabled:opacity-25 transition ease-in-out" disabled>Continuar</button>
                 </div>
                 </form>
             </div>
@@ -85,5 +85,6 @@
         </div>
 
         <script src="index.js"></script>
+        <script src="/componentes/nav.js"></script>
 </body>
 </html>

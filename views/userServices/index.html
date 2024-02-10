@@ -11,10 +11,10 @@
     <nav id="nav" class="fixed top-0 right-0 left-0 bg-rose-900 h-16 gap-4">
     </nav>
 
-    <div class="h-screen max-w-full mx-auto pt-20 flex justify-between items-center flex-row px-10 ">
-        <div class=" w-3/4 h-full flex flex-col">
-            <div class="w-full h-32">
-                <div class="bg-slate-500 h-full w-11/12 rounded-lg">
+    <div class="h-full max-w-full mx-auto pt-20 flex justify-between items-center flex-row px-10 bg-slate-100">
+        <div class=" w-3/4 h-5/6 flex flex-col pt-4">
+            <div class="w-full h-20">
+                <div class=" h-full w-11/12 rounded-lg">
                     <div class="flex flex-row pb-2">
                     <p class="font-bold">Servicios ></p>
                     <p> Equipo >Hora >Confirmar</p>
@@ -22,9 +22,9 @@
                     <p class="text-4xl">Servicios</p>
                 </div>
         </div>
-        <div class="w-4/6 h-16 fixed top-40">
-            <div id="menu" class="bg-slate-700 h-full w-full rounded-lg flex items-center gap-4">
-                    <a id="destacados" href="#first">Peluquería</a>
+        <div class="w-4/6 h-16 flex">
+            <div id="menu" class=" h-full w-full rounded-lg flex flex-row items-center gap-4">
+                    <a id="destacados" href="#first" class="bg-black text-white p-2 rounded-lg w-28 flex justify-center">Peluquería</a>
 
                     <a  id="peluqueria" href="#second">Cuerpo</a>
 
@@ -35,43 +35,43 @@
 
             </div>
         </div>
-        <div id="first" class="w-full h-14 pt-2">
-            <div class="bg-slate-500 h-full w-11/12 rounded-lg flex items-center">
+        <div id="first" class="w-full h-14 pb-4 pt-2">
+            <div class=" h-full w-11/12 rounded-lg flex items-center">
                 <p class="text-2xl">Peluquería</p>
             </div>
     </div> 
     <div class="w-full h-1/4">
-    <ul id="texDes">
+    <ul class="flex flex-col gap-2" id="texDes">
         </ul>
-    <div id="second" class="w-full h-14 pt-2">
-        <div class="bg-slate-500 h-full w-11/12 rounded-lg flex items-center">
+    <div id="second" class="w-full h-14 pb-4 pt-4">
+        <div class="h-full w-11/12 rounded-lg flex items-center">
             <p class="text-2xl">Cuerpo</p>
         </div>
     </div> 
     <div class="w-full h-1/4">
-        <ul id="texPel" >
+        <ul class="flex flex-col gap-2" id="texPel" >
             </ul> 
-    <div id="third" class="w-full h-14 pt-2">
-        <div class="bg-slate-500 h-full w-11/12 rounded-lg flex items-center">
+    <div id="third" class="w-full h-14 pt-4 pb-4">
+        <div class="h-full w-11/12 rounded-lg flex items-center">
             <p class="text-2xl">Cara</p>
         </div>
         </div>
         <div class="w-full h-1/4">
-            <ul id="texFac" >
+            <ul class="flex flex-col gap-2" id="texFac" >
                 </ul> 
-    <div id="four" class="w-full h-14 pt-2">
-    <div class="bg-slate-500 h-full w-11/12 rounded-lg flex items-center">
+    <div id="four" class="w-full h-14 pb-4 pt-4">
+    <div class=" h-full w-11/12 rounded-lg flex items-center">
         <p class="text-2xl">Uñas</p>
     </div>
     </div> 
     <div class="w-full h-1/4">
-        <ul id="texUn" >
+        <ul class="flex flex-col gap-2 pb-2" id="texUn" >
             </ul>
         </div>
         <div class=" fixed right-10 top-24 w-1/4 h-5/6 pb-3 hidden md:flex">
-            <div class="bg-slate-400 h-full w-full rounded-lg p-4 pt-7">
+            <div class=" border-2 border-slate-300 h-full w-full rounded-lg p-4 pt-7">
                 <form class=" h-full flex items-center justify-center flex-col gap-2" id="r">
-                    <p class="text-xl text-white font-bold pb-2">Agregar servicios</p>
+                    <p class="text-2xl font-bold pb-2">Servicios escogidos</p>
                
                     <div class="h-72 w-full overflow overflow-y-scroll flex flex-col">
                     <ul id="show" class="flex flex-col gap-1">
@@ -79,18 +79,19 @@
                     </ul>
                     </div>
 
-                    <div class="h-10 w-full bg-slate-600 flex flex-row justify-between rounded-lg text-black pl-2 pr-2 items-center">
+                    <div class="h-10 w-full border-t-2 border-slate-300 flex flex-row justify-between rounded-lg text-black pl-2 pr-2 items-center">
                         <p class="font-semibold">Total a pagar:</p>
                         <span id="results">0$</span>
                     </div>
 
                 <div class="pt-4 w-full">
-                <button id="continuar" class="p-2 w-full font-bold text-white bg-black rounded-lg disabled:opacity-25" disabled>Continuar</button>
+                <button id="continuar" class="p-2 w-full font-bold text-white bg-black rounded-lg disabled:opacity-25 transition easy-in-out" disabled>Continuar</button>
                 </div>
                 </form>
             </div>
         </div> 
         </div>
         <script src="index.js"></script>
+        <script src="/componentes/nav.js"></script>
 </body>
 </html>

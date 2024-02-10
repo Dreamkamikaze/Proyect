@@ -14,6 +14,7 @@ const employersRouter = require('./controlers/employers');
 const getEmployersRouter = require('./controlers/getEmployers');
 const datesRouter = require('./controlers/dates');
 const datesViewRouter = require('./controlers/datesView');
+const logoutRouter = require('./controlers/logout');
 require('dotenv').config();
 
 (async() => {
@@ -56,6 +57,7 @@ app.use('/api/login',  loginRouter);
 app.use('/api/services', servicesRouter);
 app.use('/api/dates', datesRouter);
 app.use('/api/datesView', datesViewRouter);
+app.use('/api/logout', logoutRouter);
 app.use('/api/isAdmin', userExtractor, adminRouter);
 
 

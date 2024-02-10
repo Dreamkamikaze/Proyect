@@ -2,8 +2,13 @@ const servicesRouter = require('express').Router();
 const Service = require('../models/service');
 
 servicesRouter.get('/', async (request, response) => {
-  const service = await Service.find();
-  return response.status(200).json(service);
+  try {
+    const service = await Service.find();
+    return response.status(200).json(service);
+
+  } catch (error) {
+    console.log(error);
+  }
 });
 
 servicesRouter.post('/', async (request, response) => {

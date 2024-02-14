@@ -7,6 +7,8 @@ const serviemplo = document.querySelector('#serviemplo');
 const dateTime = document.querySelector('#dateTime');
 const totalPrice = document.querySelector('#totalPrice');
 const notification = document.querySelector('#notification');
+const loader = document.querySelector('#loader');
+const principal = document.querySelector('#principal');
 
 const restart = document.querySelector('#restart');
 const metodoPago = document.querySelector('#metodoPago');
@@ -32,7 +34,9 @@ const dateId = cut[4]; //Id de la cita
   dateTime.innerHTML = data.time;
   totalPrice.innerHTML  = `${data.price}$`;
 
-
+  loader.classList.add('hidden');
+  principal.classList.remove('hidden');
+  principal.classList.add('flex');
 })();
 
 restart.addEventListener('click', async e => {

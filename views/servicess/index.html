@@ -11,10 +11,10 @@
     <nav id="nav" class="fixed top-0 right-0 left-0 bg-rose-900 h-16 gap-4">
     </nav>
 
-    <div class="h-screen max-w-full mx-auto pt-20 flex justify-between items-center flex-row px-10 ">
+    <div class="h-full bg-slate-100 max-w-full mx-auto pt-20 flex justify-between items-center flex-row px-10 ">
         <div class=" w-3/4 h-full flex flex-col">
-            <div class="w-full h-32">
-                <div class="bg-slate-500 h-full w-11/12 rounded-lg">
+            <div class="w-full h-20">
+                <div class=" h-full w-11/12 rounded-lg">
                     <div class="flex flex-row pb-2">
                     <p class="font-bold">Servicios ></p>
                     <p> Equipo >Hora >Confirmar</p>
@@ -22,9 +22,9 @@
                     <p class="text-4xl">Servicios</p>
                 </div>
         </div>
-        <div class="w-4/6 h-16 fixed top-40">
-            <div id="menu" class="bg-slate-700 h-full w-full rounded-lg flex items-center gap-4">
-                    <a id="destacados" href="#first">Peluquería</a>
+        <div class="w-4/6 h-16">
+            <div id="menu" class=" h-full w-full rounded-lg flex items-center gap-4">
+                    <a id="destacados" class="bg-black text-white p-2 rounded-lg w-28 flex justify-center" href="#first">Peluquería</a>
 
                     <a  id="peluqueria" href="#second">Cuerpo</a>
 
@@ -33,47 +33,56 @@
 
                     <a id="nails" href="#four">Uñas</a>
 
+                    <div id="loader" class="text-center flex items-center justify-start w-full h-full">
+                        <div role="status">
+                            <svg aria-hidden="true" class="inline w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor"/>
+                                <path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="currentFill"/>
+                            </svg>
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                    </div>
             </div>
         </div>
         <div id="first" class="w-full h-14 pt-2">
-            <div class="bg-slate-500 h-full w-11/12 rounded-lg flex items-center">
-                <p class="text-2xl">Peluquería</p>
+            <div class=" h-full w-11/12 rounded-lg flex items-center">
+                <p class="text-3xl">Peluquería</p>
             </div>
     </div> 
     <div class="w-full h-1/4">
-    <ul id="texDes">
+    <ul class="flex flex-col justify-between gap-1" id="texDes">
         </ul>
     <div id="second" class="w-full h-14 pt-2">
-        <div class="bg-slate-500 h-full w-11/12 rounded-lg flex items-center">
-            <p class="text-2xl">Cuerpo</p>
+        <div class=" h-full w-11/12 rounded-lg flex items-center">
+            <p class="text-3xl">Cuerpo</p>
         </div>
     </div> 
     <div class="w-full h-1/4">
-        <ul id="texPel" >
+        <ul class="flex flex-col justify-between gap-1" id="texPel" >
             </ul> 
     <div id="third" class="w-full h-14 pt-2">
-        <div class="bg-slate-500 h-full w-11/12 rounded-lg flex items-center">
-            <p class="text-2xl">Cara</p>
+        <div class=" h-full w-11/12 rounded-lg flex items-center">
+            <p class="text-3xl">Cara</p>
         </div>
         </div>
         <div class="w-full h-1/4">
-            <ul id="texFac" >
+            <ul class="flex flex-col justify-between gap-1" id="texFac" >
                 </ul> 
     <div id="four" class="w-full h-14 pt-2">
-    <div class="bg-slate-500 h-full w-11/12 rounded-lg flex items-center">
-        <p class="text-2xl">Uñas</p>
+    <div class=" h-full w-11/12 rounded-lg flex items-center">
+        <p class="text-3xl">Uñas</p>
     </div>
     </div> 
     <div class="w-full h-1/4">
-        <ul id="texUn" >
+        <ul class="flex flex-col justify-between gap-1 pb-2" id="texUn" >
             </ul>
         </div>
         <div class=" fixed right-10 top-24 w-1/4 h-5/6 pb-3 hidden md:flex">
-            <div class="bg-slate-400 h-full w-full rounded-lg p-4 pt-7">
+            <div class="border-slate-400 border-2 h-full w-full rounded-lg p-4 pt-7">
                 <form class=" h-full flex items-center justify-center flex-col gap-2" id="r">
-                    <p class="text-xl text-white font-bold pb-2">Crear nuevo servicio</p>
+                    <p class="text-2xl font-bold pb-2">Crear nuevo servicio</p>
                 <div class="pb-4 w-full rounded-lg">
-                <select id="choose" class="w-full p-3 rounded-lg">
+                <select id="choose" class="w-full p-3 rounded-lg border border-slate-800">
                     <option disabled selected value="0">Escoge el servicio</option>
                     <option value="1">Peluquería</option>
                         <option value="2">Cuerpo</option>
@@ -82,17 +91,17 @@
                     </select>
                 </div>
                 <div class="flex justify-start w-full">
-                <p class="font-bold text-xs">Nombre del servicio</p>
+                <p class="font-bold text-xs ">Nombre del servicio</p>
                 </div>
-                <input id="servicio" class="w-full h-10 rounded-lg" type="text" autocomplete="off">
+                <input id="servicio" class="w-full h-10 rounded-lg border-b-2 border-slate-500" type="text" autocomplete="off">
                 <div class="flex justify-start w-full">
                 <p class="font-bold text-xs pt-2">Duración del servicio</p>
                 </div>
-                <input id="descripcion" class="w-full h-10 rounded-lg" type="text" autocomplete="off">
+                <input id="descripcion" class="w-full h-10 rounded-lg border-b-2 border-slate-500" type="text" autocomplete="off">
                 <div class="flex justify-between items-center w-full">
                 <p class="font-bold text-xs pt-2">Precio del servicio (En dolares)</p>
                 </div>
-                <input id="precio" class="w-full h-10 rounded-lg " type="number" autocomplete="off">
+                <input id="precio" class="w-full h-10 rounded-lg border-b-2 border-slate-500" type="number" autocomplete="off">
                 <div class="pt-7 w-full">
                 <button id="continuar" class="p-2 w-full font-bold text-white bg-black rounded-lg disabled:opacity-25" disabled>Crear servicio</button>
                 </div>

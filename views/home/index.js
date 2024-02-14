@@ -2,6 +2,8 @@
 // Constantes
 const ul = document.querySelector('#selectionList');
 const menu = document.querySelector('#menu');
+const loader = document.querySelector('#loader');
+const msg = document.querySelector('#msg');
 // const makeDate = document.querySelector('#makeDate');
 const peluqueria = menu.children[0];
 const cuerpo = menu.children[1];
@@ -25,17 +27,24 @@ const maker = (nameId, dat) => {
       </div>
       </div>`;
   ul.append(li);
+
 };
 
 // Encontrado los datos predeterminados
+
 (async() => {
   try {
     const { data } = await axios.get('/api/services');
     const pelu = data.filter(a => a.option === '1');
-    pelu.forEach(element => {
-      const li = document.createElement('li');
-      li.classList.add('flex', 'flex-row');
-      li.innerHTML = `
+    if (pelu.length === 0) {
+      msg.classList.add('flex');
+      msg.classList.remove('hidden');
+    } else
+
+      pelu.forEach(element => {
+        const li = document.createElement('li');
+        li.classList.add('flex', 'flex-row');
+        li.innerHTML = `
       <div id='serPel' class="pt-2 h-full w-11/12">
       <div  class=" h-full w-full rounded-lg flex flex-row items-center justify-between pl-7 pt-4 pb-4 break-words border-2 border-gray">
       <div class="flex flex-col items-start w-3/4">
@@ -45,8 +54,8 @@ const maker = (nameId, dat) => {
       </div>
       </div>
       </div>`;
-      ul.append(li);
-    });
+        ul.append(li);
+      });
     const body = data.filter(a => a.option === '2');
     body.forEach(element => {
       maker('serBody', element);
@@ -60,11 +69,15 @@ const maker = (nameId, dat) => {
       maker('serNail', element);
     });
 
+    loader.classList.add('hidden');
 
   } catch (error) {
     console.log(error);
   }
 })();
+
+
+
 
 
 //Funcion para esconder  y mostrar los servicios
@@ -99,13 +112,46 @@ menu.addEventListener('click', e => {
   const serNail = Array.prototype.slice.call(nail);
 
   if (e.target === peluqueria) {
-    show(serPel, serBody, serFace, serNail);
+    if (serPel.length === 0) {
+      msg.classList.add('flex');
+      msg.classList.remove('hidden');
+      show(serPel, serBody, serFace, serNail);
+    } else {
+      msg.classList.remove('flex');
+      msg.classList.add('hidden');
+      show(serPel, serBody, serFace, serNail);
+    }
   } else if (e.target === cuerpo) {
-    show(serBody, serPel, serFace, serNail);
+    if (serBody.length === 0) {
+      msg.classList.add('flex');
+      msg.classList.remove('hidden');
+      show(serBody, serPel, serFace, serNail);
+    } else {
+      msg.classList.remove('flex');
+      msg.classList.add('hidden');
+      show(serBody, serPel, serFace, serNail);
+    }
   } else if (e.target === cara) {
-    show(serFace, serNail, serBody, serPel);
+    if (serFace.length === 0 ) {
+      msg.classList.add('flex');
+      msg.classList.remove('hidden');
+      show(serFace, serPel, serBody, serNail);
+    } else {
+      msg.classList.remove('flex');
+      msg.classList.add('hidden');
+      show(serFace, serNail, serBody, serPel);
+    }
   } else if (e.target === nails) {
-    show(serNail, serFace, serPel, serBody);
+    if (serNail.length === 0 ) {
+      msg.classList.add('flex');
+      msg.classList.remove('hidden');
+      show(serNail, serPel, serBody, serFace);
+    } else {
+      msg.classList.remove('flex');
+      msg.classList.add('hidden');
+      show(serNail, serFace, serPel, serBody);
+
+    }
   }
 
 

@@ -11,6 +11,7 @@ const show = document.querySelector('#show');
 const results = document.querySelector('#results');
 const continuar = document.querySelector('#continuar');
 const form = document.querySelector('#r');
+const loader = document.querySelector('#loader');
 
 
 // Datos traidos del backend y mostrados en el frontend
@@ -57,7 +58,7 @@ const form = document.querySelector('#r');
           </div>
           </div>`;
       a.append(li);
-
+      loader.classList.add('hidden');
     });
 
   } catch (error) {

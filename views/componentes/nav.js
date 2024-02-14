@@ -57,13 +57,13 @@ const adminHome = () => {
 <div class="hidden md:flex row text-white font-extralight gap-3">
 <a href="/servicess/" class=" py-2 px-2 hover:bg-rose-950 rounded-lg transition ease-in-out">Agregar servicios</a>
 <a href="/datesView/" class=" py-2 px-2 hover:bg-rose-950 rounded-lg transition ease-in-out">Ver citas</a>
-<button id="closeBtn" class="bg-rose-700 py-2 px-2 hover:bg-rose-950 rounded-lg transition ease-in-out">Cerrar sección</button>
+<button id="closeBtn" class="bg-rose-700 py-2 px-2 hover:bg-rose-950 rounded-lg transition ease-in-out">Cerrar sesión</button>
 </div> 
 
 <div class="bg-rose-950/80 fixed top-16 left-0 right-0 bottom-96 hidden items-center justify-center flex-col gap-3">
 <a href="/servicess/" class="py-2 px-2  text-white hover:bg-rose-950 rounded-lg transition ease-in-out">Agregar servicios</a>
 <a href="/datesView/" class=" py-2 px-2 text-white hover:bg-rose-950 transition ease-in-out rounded-lg">Ver citas</a>
-<button id="closeBtn" class="bg-rose-700 py-2 px-2 hover:bg-rose-950 rounded-lg transition ease-in-out">Cerrar sección</button>
+<button id="closeBtn" class="bg-rose-700 py-2 px-2 hover:bg-rose-950 rounded-lg transition ease-in-out">Cerrar sesión</button>
 </div>
 </div>
     `;
@@ -220,12 +220,12 @@ const userHome = () => {
 <!-- Computador -->
 <div class="hidden md:flex row text-white font-extralight gap-3">
 
-<button id="closeBtn" class="bg-rose-700 py-2 px-2 hover:bg-rose-950 rounded-lg transition ease-in-out">Cerrar sección</button>
+<button id="closeBtn" class="bg-rose-700 py-2 px-2 hover:bg-rose-950 rounded-lg transition ease-in-out">Cerrar sesión</button>
 </div> 
 
 <div class="bg-rose-950/80 fixed top-16 left-0 right-0 bottom-96 hidden items-center justify-center flex-col gap-3">
 
-<button id="closeBtn" class=" bg-rose-700 py-2 px-2 hover:bg-rose-950 rounded-lg transition ease-in-out">Cerrar sección</button>
+<button id="closeBtn" class=" bg-rose-700 py-2 px-2 hover:bg-rose-950 rounded-lg transition ease-in-out">Cerrar sesión</button>
 </div>
 </div>`;
 };
@@ -486,7 +486,7 @@ if (window.location.pathname === '/') {
     }
   })();
 // eslint-disable-next-line no-undef
-} else if (window.location.pathname === '/employed/') {
+} else if (window.location.toString().includes('/employed/')) {
   (async() => {
     try {
       const { data } = await axios.get('/api/isAdmin');

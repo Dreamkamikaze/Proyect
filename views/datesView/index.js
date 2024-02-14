@@ -1,6 +1,7 @@
 /* eslint-disable no-undef */
 // eslint-disable-next-line no-undef
 const tabla = document.querySelector('#tabla');
+const loader = document.querySelector('#loader');
 
 (async() => {
   const { data } = await axios.get('/api/datesView');
@@ -22,6 +23,7 @@ const tabla = document.querySelector('#tabla');
     </td>
     `;
     tabla.append(tr);
+    loader.classList.add('hidden');
   });
   tabla.addEventListener('click', async e => {
     const b = e.target.closest('.b');

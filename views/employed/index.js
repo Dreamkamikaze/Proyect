@@ -2,7 +2,6 @@ import { createNotification } from "/componentes/notification.js";
 
 /* eslint-disable no-undef */
 
-console.log('hola');
 
 const list = document.querySelector('#list');
 const form = document.querySelector('#form');
@@ -10,6 +9,8 @@ const btn = document.querySelector('#btn');
 const prueba = document.querySelector('#prueba');
 const profile = document.querySelector('#profile');
 const notification = document.querySelector('#notification')
+const loader = document.querySelector('#loader');
+const loadertwo = document.querySelector('#loadertwo');
 
 let activeOp = false;
 let activeLen = false;
@@ -30,7 +31,7 @@ vali();
     data.forEach(employer => {
       const li = document.createElement('li');
       li.innerHTML = `
-      <li class="flex w-full h-14 bg-gray-300 outline outline-gray-600 outline-1 items-center p-3 font-bold hover:bg-gray-500 cursor-pointer">${employer.name}</li>
+      <li class="flex w-full h-14 text-lg outline outline-gray-600 outline-1 items-center p-3 font-bold hover:bg-gray-500 cursor-pointer">${employer.name}</li>
       `;
       list.append(li);
 
@@ -60,6 +61,7 @@ vali();
         });
       });
     });
+    loader.classList.add('hidden');
   } catch (error) {
     console.log(error);
   }
@@ -155,6 +157,7 @@ borrar(prueba);
   const theId = curret.split('/');
   const key = theId[4];
   const { data } = await axios.get(`/api/getEmployers/${key}`);
+  loadertwo.classList.add('hidden');
   const important = data.employed
   important.forEach(worker => {
     const div = document.createElement('div');

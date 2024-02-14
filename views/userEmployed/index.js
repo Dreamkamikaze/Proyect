@@ -8,6 +8,7 @@ const confirmBtn = document.querySelector('#confirmBtn');
 const giveEmployed = document.querySelector('#giveEmployed');
 const predeterminateOption = document.querySelector('#predeterminateOption');
 const schedule = document.querySelector('#schedule');
+const loader = document.querySelector('#loader');
 
 
 // // // //Consiguiendo los id de los servicios
@@ -38,16 +39,20 @@ currentId.forEach(element => {
        <p id="${element._id}" class="text-center h-10 w-40 break-words pt-2 font-bold">${element.name}</p>
        </div>`;
       employedList.append(li);
+      loader.classList.add('hidden');
     });
   })();
 });
 
 
-//Consiguiendo los empleados al ser seleccionado el servicio, dejando a la vista a los que se reuqieren
+//Consiguiendo los empleados al ser seleccionado el servicio, dejando a la vista a los que se requieren
 selectService.addEventListener('change', async e => {
   let option = e.currentTarget.selectedOptions[0].textContent;
   const list =  employedList.children;
   const arrayList = [...list];
+  arrayList.forEach(element => {
+    element.children[0].children[0].classList.remove('bg-slate-900', 'text-white');
+  });
   arrayList.forEach(element => {
     const a = element.children[0].id.charAt(0).toUpperCase() + element.children[0].id.substring(1);
     if (a === option) {

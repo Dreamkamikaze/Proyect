@@ -13,6 +13,7 @@ const servicio = document.querySelector('#servicio');
 const descripcion = document.querySelector('#descripcion');
 const precio = document.querySelector('#precio');
 const continuar = document.querySelector('#continuar');
+const loader = document.querySelector('#loader');
 
 
 //Para desbloquear el boton
@@ -87,7 +88,7 @@ precio.addEventListener('input', e => {
       li.id = service.id;
       li.classList.add('flex', 'flex-row');
       li.innerHTML = `
-      <div class="bg-slate-400 h-full w-11/12 rounded-lg flex flex-row items-center justify-between p-4 break-words">
+      <div class="border-slate-400 border-2 h-full w-11/12 rounded-lg flex flex-row items-center justify-between p-4 break-words">
       <div class="flex flex-col items-start w-3/4">
             <p class="font-bold pb-0 pr-2 w-full">${service.service.charAt(0).toUpperCase() + service.service.substring(1)}</p>
         <p class="text-gray-800">${service.description.charAt(0).toUpperCase() + service.description.substring(1)}</p>
@@ -104,6 +105,7 @@ precio.addEventListener('input', e => {
         </div>
         </div>`;
       a.append(li);
+      loader.classList.add('hidden');
 
     });
 
@@ -177,7 +179,7 @@ r.addEventListener('submit', async e => {
     const li = document.createElement('li');
     li.id = data.id;
     li.innerHTML = `
-  <div class="bg-slate-400 h-full w-11/12 rounded-lg flex flex-row items-center justify-between p-4 break-words">
+  <div class="border-slate-400 border-2 h-full w-11/12 rounded-lg flex flex-row items-center justify-between p-4 break-words">
   <div class="flex flex-col items-start w-3/4">
         <p class="font-bold pb-0 pr-2 w-full">${data.service.charAt(0).toUpperCase() + servicio.value.substring(1)}</p>
     <p class="text-gray-800">${data.description.charAt(0).toUpperCase() + descripcion.value.substring(1)}</p>
@@ -212,7 +214,6 @@ r.addEventListener('submit', async e => {
   }
 
 });
-
 
 
 

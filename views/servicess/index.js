@@ -62,32 +62,36 @@ precio.addEventListener('input', e => {
   try {
 
     const { data } = await axios.get('/api/services');
-    data.forEach(service => {
+    if (data.length === 0 ) {
+      loader.classList.add('hidden');
+    } else {
 
-      //Optiones para que puedan posicionarse
+      data.forEach(service => {
 
-      let valorOption = service.option;
-      let a =  null;
-      if (valorOption === '0') {
-        choose.classList.add('outline', 'outline-red-700');
-      } else if (valorOption === '1') {
-        a = document.querySelector('#texDes');
-        choose.classList.remove('outline', 'outline-red-700');
-      } else if (valorOption === '2') {
-        a  = document.querySelector('#texPel');
-        choose.classList.remove('outline', 'outline-red-700');
-      } else if (valorOption === '3') {
-        a = document.querySelector('#texFac');
-        choose.classList.remove('outline', 'outline-red-700');
-      } else if (valorOption === '4') {
-        a = document.querySelector('#texUn');
-        choose.classList.remove('outline', 'outline-red-700');
-      }
+        //Optiones para que puedan posicionarse
 
-      const li = document.createElement('li');
-      li.id = service.id;
-      li.classList.add('flex', 'flex-row');
-      li.innerHTML = `
+        let valorOption = service.option;
+        let a =  null;
+        if (valorOption === '0') {
+          choose.classList.add('outline', 'outline-red-700');
+        } else if (valorOption === '1') {
+          a = document.querySelector('#texDes');
+          choose.classList.remove('outline', 'outline-red-700');
+        } else if (valorOption === '2') {
+          a  = document.querySelector('#texPel');
+          choose.classList.remove('outline', 'outline-red-700');
+        } else if (valorOption === '3') {
+          a = document.querySelector('#texFac');
+          choose.classList.remove('outline', 'outline-red-700');
+        } else if (valorOption === '4') {
+          a = document.querySelector('#texUn');
+          choose.classList.remove('outline', 'outline-red-700');
+        }
+
+        const li = document.createElement('li');
+        li.id = service.id;
+        li.classList.add('flex', 'flex-row');
+        li.innerHTML = `
       <div class="border-slate-400 border-2 h-full w-11/12 rounded-lg flex flex-row items-center justify-between p-4 break-words">
       <div class="flex flex-col items-start w-3/4">
             <p class="font-bold pb-0 pr-2 w-full">${service.service.charAt(0).toUpperCase() + service.service.substring(1)}</p>
@@ -104,10 +108,10 @@ precio.addEventListener('input', e => {
         </div>
         </div>
         </div>`;
-      a.append(li);
-      loader.classList.add('hidden');
-
-    });
+        a.append(li);
+        loader.classList.add('hidden');
+      });
+    }
 
   } catch (error) {
     console.log(error);

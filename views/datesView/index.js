@@ -2,14 +2,22 @@
 // eslint-disable-next-line no-undef
 const tabla = document.querySelector('#tabla');
 const loader = document.querySelector('#loader');
+const msg = document.querySelector('#msg');
 
 (async() => {
   const { data } = await axios.get('/api/datesView');
-  data.forEach(element => {
-    const tr = document.createElement('tr');
-    tr.classList.add('text-lg', 'h-16', 'bg-slate-100');
-    tr.id = element.id;
-    tr.innerHTML = ` 
+  if (data.length === 0) {
+    msg.classList.add('flex');
+    msg.classList.remove('hidden');
+    loader.classList.add('hidden');
+  } else {
+    msg.classList.add('hidden');
+    msg.classList.remove('flex');
+    data.forEach(element => {
+      const tr = document.createElement('tr');
+      tr.classList.add('text-lg', 'h-16', 'bg-slate-100');
+      tr.id = element.id;
+      tr.innerHTML = ` 
     <td>${element.user.name}</td>
     <td>${element.email}</td>
     <td class="p-7">${element.serviemplo}</td>
@@ -22,9 +30,10 @@ const loader = document.querySelector('#loader');
         </svg>                  
     </td>
     `;
-    tabla.append(tr);
-    loader.classList.add('hidden');
-  });
+      tabla.append(tr);
+      loader.classList.add('hidden');
+    });
+  }
   tabla.addEventListener('click', async e => {
     const b = e.target.closest('.b');
     if (b) {

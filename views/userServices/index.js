@@ -20,6 +20,9 @@ const loader = document.querySelector('#loader');
   try {
 
     const { data } = await axios.get('/api/services');
+    if (data.length === 0) {
+      loader.classList.add('hidden');
+    }
     data.forEach(service => {
 
       //Optiones para que puedan posicionarse
